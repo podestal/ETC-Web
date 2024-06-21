@@ -1,4 +1,5 @@
 import { useQueryPost } from "./hooks/usePosts"
+import Posts from "./components/posts/Posts"
 
 const App = () => {
 
@@ -11,11 +12,10 @@ const App = () => {
   JSON.stringify
 
   return (
-    <h1 className="text-3xl font-bold underline">
-      <>
-        {console.log('posts', posts)}
-      </>
-    </h1>
+    <>
+      <h1 className="text-3xl font-bold underline"></h1>
+      <Posts />
+    </>
   )
 }
 
