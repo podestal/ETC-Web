@@ -1,5 +1,6 @@
-import useQueryPosts from "../hooks/usePosts"
+import useQueryPosts from "../hooks/posts/usePosts"
 import Posts from "../components/posts/Posts"
+import Topics from "../components/topics/Topics"
 
 
 const PostsPage = () => {
@@ -14,14 +15,7 @@ const PostsPage = () => {
     <>
         <h1 className="text-3xl font-bold">Artículos</h1>
         <div className="w-full flex justify-center items-center gap-12">
-            <div>
-                <h2>Topics</h2>
-                <ul>
-                    <li>Topic 1</li>
-                    <li>Topic 1</li>
-                    <li>Topic 1</li>
-                </ul>
-            </div>
+            <Topics />
             <Posts 
                 posts={posts}
             />

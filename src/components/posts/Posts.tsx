@@ -7,7 +7,7 @@ interface Props {
 }
 
 const Posts = ({ posts }: Props) => {
-
+    
     if (posts?.length == 0) return <p className="flex-1">No hay artículos</p>
 
     return (

@@ -1,6 +1,6 @@
 import { useQueryClient, useMutation, UseMutationResult } from "@tanstack/react-query";
-import postService, {Post} from "../services/postService";
-import { CACHE_KEY_POSTS } from "../constants/queryKeys";
+import postService, {Post} from "../../services/postService";
+import { CACHE_KEY_POSTS } from "../../constants/queryKeys";
 // UseQueryResult<Post[], Error>
 
 const useCreatePost = (onCreate: () => void): UseMutationResult<Post, Error, Post> => {

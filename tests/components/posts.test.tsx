@@ -5,7 +5,7 @@ import { Post } from '../../src/services/postService'
 import { describe, expect, it } from 'vitest'
 import '@testing-library/jest-dom/vitest'
 
-describe('Post', () => {
+describe('Posts', () => {
     it('should render nothing if posts length is 0', () => {
         render(<Posts posts={[]}/>)
         expect(screen.getByText(/no hay artículos/i)).toBeInTheDocument()
