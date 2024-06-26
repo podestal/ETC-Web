@@ -13,7 +13,7 @@ const PostsPage = () => {
     
   return (
     <>
-        <div className="w-full flex gap-12">
+        <div className="w-full flex gap-12 min-h-[100vh]">
             <Topics 
 
             />

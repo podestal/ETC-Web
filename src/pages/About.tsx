@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <div>About</div>
+    <div className="min-h-[100vh]">About</div>
   )
 }
 

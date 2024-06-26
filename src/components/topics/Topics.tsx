@@ -4,7 +4,7 @@ import TopicCard from "./TopicCard"
 
 const Topics = () => {
 
-    const select = useTopicStore(store => store.select)
+    const {topic, select} = useTopicStore()
 
     const { data: topics, isLoading, isError, error } = useQueryTopics()
 
@@ -13,10 +13,10 @@ const Topics = () => {
     if (isError) return <p>{error.message}</p>
 
   return (
-    <div className="w-[240px] my-4">
-        <h2 className="text-2xl my-10 font-bold">Categorías</h2>
+    <div className="w-[280px] my-4">
+        <h2 className="text-3xl my-10 font-bold">Categorías</h2>
         <ul className="flex flex-col gap-12">
-            <div className="flex justify-start items-center gap-4">
+            <div className={`flex justify-start items-center gap-4 ${topic == 0 && 'bg-slate-900'} py-2 px-4 rounded-3xl`}>
                 <div className={`w-[14px] h-[14px] rounded-full bg-slate-500`}></div>
                 <p onClick={() => select(0)} className="text-xl hover:text-slate-400 cursor-pointer">Todas las categorías</p>
             </div>
