@@ -13,7 +13,6 @@ const PostsPage = () => {
     
   return (
     <>
-        <h1 className="text-6xl font-bold">Artículos</h1>
         <div className="w-full flex gap-12">
             <Topics 
 
