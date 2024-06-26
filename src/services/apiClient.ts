@@ -16,27 +16,12 @@ class APIClient<T> {
             .get(this.endpoint)
             .then(res => res.data)
     }
+
+    post = (data: T) => {
+        return axiosInstance
+            .post<T>(this.endpoint, data)
+            .then(res => res.data)
+    }
 }
-
-// class APIClient<T> {
-//     endpoint: string
-
-//     constructor(endpoint: string) {
-//         this.endpoint = endpoint
-//     }
-
-//     getAll = () => {
-//         return axiosInstance
-//             .get(this.endpoint)
-//             .then(res => res.data)
-
-//     }
-
-//     post = (data: T) => {
-//         return axiosInstance
-//             .post<T>(this.endpoint, data)
-//             .then(res => res.data)
-//     }
-// }
 
 export default APIClient
