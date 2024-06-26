@@ -6,7 +6,12 @@ interface Props {
 
 const PostCard = ({ post }: Props) => {
   return (
-    <div>{post.title}</div>
+    <div>
+        <div className="w-full h-[500px] bg-no-repeat bg-cover bg-center rounded-3xl my-6" style={{backgroundImage: `url(${post.img_url})`}}></div>
+        <p className="text-4xl hover:text-slate-400 cursor-pointer my-4">{post.title}</p>
+        <p className="text-lg">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam vitae minus dolorum doloribus recusandae error, sint facilis, molestias aperiam natus doloremque, commodi sed distinctio placeat ea obcaecati nihil hic nulla.</p>
+        <p className="font-bold my-4 text-xl">Escrito por: Luis Rodriguez</p>
+    </div>
   )
 }
 
