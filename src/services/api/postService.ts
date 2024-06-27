@@ -1,5 +1,9 @@
 import APIClient from "./apiClient"
 
+export interface DeletePostData {
+    access: string
+}
+
 export interface PostData {
     post: Post,
     access: string

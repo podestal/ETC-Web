@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { Post } from "../../services/api/postService"
 import moment from "moment"
 import UpdatePost from "./UpdatePost"
+import DeletePost from "./DeletePost"
 import useAuthStore from "../auth/Store"
 import { User } from "../../services/auth/userService"
 
@@ -22,6 +23,7 @@ const PostCard = ({ post, user }: Props) => {
         <div className="w-full h-[500px] bg-no-repeat bg-cover bg-center rounded-3xl mb-10" style={{backgroundImage: `url(${post.img_url})`}}></div>
         <div className="flex justify-start items-center gap-8">
             {access && <UpdatePost post={post}/>}
+            {access && <DeletePost post={post}/>}
             <p className="text-6xl hover:text-slate-400 cursor-pointer my-4"><Link to={`/${post.id}`} state={post}>{post.title}</Link></p>
         </div>
         <p className="text-lg text-slate-400">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam vitae minus dolorum doloribus recusandae error, sint facilis, molestias aperiam natus doloremque, commodi sed distinctio placeat ea obcaecati nihil hic nulla.</p>
