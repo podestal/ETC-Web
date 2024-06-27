@@ -14,7 +14,7 @@ const UpdatePost = ({ post }: Props) => {
 
   return (
     <>
-        <Icon onClick={() => setOpen(true)} className="cursor-pointer" icon={RiEdit2Line} size="xl"/>
+        <Icon onClick={() => setOpen(true)} className="cursor-pointer" icon={RiEdit2Line} size="lg"/>
         <PostForm 
             open={open}
             setOpen={setOpen}

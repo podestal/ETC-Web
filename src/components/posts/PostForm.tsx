@@ -9,7 +9,7 @@ import { PostData } from "../../services/api/postService"
 import { useState } from "react"
 import useUpdatePost from "../../hooks/posts/useUpdatePost"
 import useQueryTopics from "../../hooks/topics/useTopics"
-import useCreatePost from "../../hooks/posts/useCreatePost"
+import useCreatePost from "../../hooks/posts/useCreatePost" 
 
 interface Props {
     open: boolean,
@@ -62,6 +62,7 @@ const PostForm = ({ open, setOpen, post }: Props) => {
         setSuccess(false)
         setError(false)
         reset()
+
     }
 
     const onSubmit = (data: FieldValues) => {

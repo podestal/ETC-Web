@@ -28,7 +28,7 @@ export interface Post {
 }
 
 const getPostService = (postId?: number) => {
-    return new APIClient<Post>(`/posts/${postId ? `${postId}/` : ''}`)
+    return new APIClient<Post>(`/posts/${postId ? `${postId}/` : '?ordering=-created_at'}`)
 }
 
 export default getPostService

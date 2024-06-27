@@ -16,7 +16,7 @@ const DeletePost = ({ post }: Props) => {
 
   return (
         <>
-            <Icon onClick={() => setOpen(true)} color='red' className="cursor-pointer" icon={RiDeleteBinLine} size="xl"/>  
+            <Icon onClick={() => setOpen(true)} color='red' className="cursor-pointer" icon={RiDeleteBinLine} size="lg"/>  
             <DeleteForm 
                 open={open}
                 setOpen={setOpen}
