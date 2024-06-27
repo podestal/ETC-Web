@@ -9,21 +9,25 @@ import { Post } from "../../services/postService"
 interface Props {
     open: boolean,
     setOpen: (setter: boolean) => void,
-    createPost?: () => void,
+    post?: Post,
 }
 
 const schema = z.object({
     title: z.string().min(1, {message: 'El título es necesario'}),
-    topic: z.number().min(1, {message: 'Seleccione una categoría'}),
+    topic: z.number().default(666),
     img_url: z.string().min(1, {message: 'La imagen es necesaria'}),
     description: z.string().min(1, {message: 'La descripción es necesaria'})
 })
 
 type FormData = z.infer<typeof schema>
 
-const PostForm = ({ open, setOpen }: Props) => {
+const PostForm = ({ open, setOpen, post }: Props) => {
 
-    const {register, handleSubmit, formState: { errors }} = useForm<FormData>({ resolver: zodResolver(schema) })
+    const {register, handleSubmit, formState} = useForm<FormData>({ 
+        resolver: zodResolver(schema),   
+        defaultValues: {
+            ...post
+      }})
     const access = useAuthStore(store => store.access)
     const createPost = useCreatePost()
 
@@ -47,11 +51,13 @@ const PostForm = ({ open, setOpen }: Props) => {
             <form className="flex flex-col gap-12" onSubmit={handleSubmit(onSubmit)}>
                 <div className="w-[300px] flex flex-col justify-center items-center gap-6">
                     <p className="text-2xl text-slate-200">Título</p>
+                    <>{console.log('formState', formState.defaultValues)}</>
+                    <>{console.log('post', post)}</>
                     <TextInput 
                         {...register('title')}
                         placeholder="Tîtulo ..."
-                        error={errors.title ? true : false}
-                        errorMessage={errors.title?.message}
+                        error={formState.errors.title ? true : false}
+                        errorMessage={formState.errors.title?.message}
                     />
                 </div>
                 <div className="w-[300px] flex flex-col justify-center items-center gap-6">
@@ -59,8 +65,8 @@ const PostForm = ({ open, setOpen }: Props) => {
                     <NumberInput 
                         {...register('topic', {valueAsNumber: true})}
                         placeholder="Categoría ..."
-                        error={errors.topic ? true : false}
-                        errorMessage={errors.topic?.message}
+                        error={formState.errors.topic ? true : false}
+                        errorMessage={formState.errors.topic?.message}
                     />
                 </div>
                 <div className="w-[300px] flex flex-col justify-center items-center gap-6">
@@ -68,8 +74,8 @@ const PostForm = ({ open, setOpen }: Props) => {
                     <Textarea 
                         {...register('img_url')}
                         placeholder="Img url ..."
-                        error={errors.img_url ? true : false}
-                        errorMessage={errors.img_url?.message}
+                        error={formState.errors.img_url ? true : false}
+                        errorMessage={formState.errors.img_url?.message}
                     />
                 </div>
                 <div className="w-[300px] flex flex-col justify-center items-center gap-6">
@@ -77,8 +83,8 @@ const PostForm = ({ open, setOpen }: Props) => {
                     <Textarea 
                         {...register('description')}
                         placeholder="Descripción ..."
-                        error={errors.description ? true : false}
-                        errorMessage={errors.description?.message}
+                        error={formState.errors.description ? true : false}
+                        errorMessage={formState.errors.description?.message}
                     />
                 </div>
                 <Button color="blue" className="my-8 w-[230px] mx-auto"><p className="text-xl">Crear Artículo</p></Button>

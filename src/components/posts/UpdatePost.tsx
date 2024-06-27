@@ -2,8 +2,13 @@ import { RiEdit2Line } from "@remixicon/react"
 import { Icon } from "@tremor/react"
 import { useState } from "react"
 import PostForm from "./PostForm"
+import { Post } from "../../services/postService"
 
-const UpdatePost = () => {
+interface Props {
+    post: Post
+}
+
+const UpdatePost = ({ post }: Props) => {
 
     const [open, setOpen] = useState(false)
 
@@ -13,6 +18,7 @@ const UpdatePost = () => {
         <PostForm 
             open={open}
             setOpen={setOpen}
+            post={post}
         />
     </>
   )

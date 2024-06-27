@@ -18,7 +18,7 @@ const PostCard = ({ post }: Props) => {
     <div>
         <div className="w-full h-[500px] bg-no-repeat bg-cover bg-center rounded-3xl mb-10" style={{backgroundImage: `url(${post.img_url})`}}></div>
         <div className="flex justify-start items-center gap-8">
-            {access && <UpdatePost />}
+            {access && <UpdatePost post={post}/>}
             <p className="text-6xl hover:text-slate-400 cursor-pointer my-4"><Link to={`/${post.id}`} state={post}>{post.title}</Link></p>
         </div>
         <p className="text-lg text-slate-400">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam vitae minus dolorum doloribus recusandae error, sint facilis, molestias aperiam natus doloremque, commodi sed distinctio placeat ea obcaecati nihil hic nulla.</p>
