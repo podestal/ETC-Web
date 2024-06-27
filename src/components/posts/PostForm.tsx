@@ -62,7 +62,6 @@ const PostForm = ({ open, setOpen, post }: Props) => {
         setSuccess(false)
         setError(false)
         reset()
-
     }
 
     const onSubmit = (data: FieldValues) => {

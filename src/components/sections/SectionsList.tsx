@@ -16,10 +16,10 @@ const SectionsList = ({ postId }: Props) => {
 
   return (
     <div className="w-full flex flex-col gap-12">
+        {sections?.map( section => <SectionDetail key={section.id} section={section} postId={postId}/>)}
         <CreateSection 
             postId={postId}
         />
-        {sections?.map( section => <SectionDetail key={section.id} section={section}/>)}
     </div>
   )
 }

@@ -17,8 +17,13 @@ export interface SectionPostData {
     access: string
 }
 
-const getSectionService = (postId: number) => {
-    return new APIClient<Section>(`/sections/?ordering=created_at&post=${postId}`)
+export interface DeleteSectionData {
+    access: string
+}
+
+const getSectionService = (postId: number, sectionId?: number) => {
+    const SECTION_URL = sectionId ? `/sections/${sectionId}/` : `/sections/?ordering=created_at&post=${postId}`
+    return new APIClient<Section>(SECTION_URL)
 }
 // ?ordering=created_at
 export default getSectionService
