@@ -2,14 +2,17 @@ import { Dialog, DialogPanel, TextInput, NumberInput, Textarea, Button } from "@
 import { FieldValues, useForm } from 'react-hook-form'
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod/src/zod.js"
-import useCreatePost from "../../hooks/posts/useCreatePost"
 import useAuthStore from "../auth/Store"
 import { Post } from "../../services/postService"
+import { UseMutationResult } from "@tanstack/react-query"
+import { PostData } from "../../services/postService"
 
 interface Props {
     open: boolean,
     setOpen: (setter: boolean) => void,
     post?: Post,
+    createPost?: UseMutationResult<Post, Error, PostData>
+    updatePost?: UseMutationResult<Post, Error, PostData>
 }
 
 const schema = z.object({
@@ -21,24 +24,19 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>
 
-const PostForm = ({ open, setOpen, post }: Props) => {
+const PostForm = ({ open, setOpen, post, createPost, updatePost }: Props) => {
 
     const {register, handleSubmit, formState} = useForm<FormData>({ 
         resolver: zodResolver(schema),   
         defaultValues: {
             ...post
       }})
+
     const access = useAuthStore(store => store.access)
-    const createPost = useCreatePost()
 
     const onSubmit = (data: FieldValues) => {
-        interface PostData {
-            post: Post,
-            access: string
-        }
-        console.log({...data})
-        console.log('access', access)
-        createPost.mutate({post: {title: data.title, description: data.description, topic: data.topic, img_url: data.img_url}, access})
+        createPost && createPost.mutate({post: {title: data.title, description: data.description, topic: data.topic, img_url: data.img_url}, access})
+        updatePost && updatePost.mutate({post: {title: data.title, description: data.description, topic: data.topic, img_url: data.img_url}, access})
     }   
 
   return (
@@ -51,8 +49,6 @@ const PostForm = ({ open, setOpen, post }: Props) => {
             <form className="flex flex-col gap-12" onSubmit={handleSubmit(onSubmit)}>
                 <div className="w-[300px] flex flex-col justify-center items-center gap-6">
                     <p className="text-2xl text-slate-200">Título</p>
-                    <>{console.log('formState', formState.defaultValues)}</>
-                    <>{console.log('post', post)}</>
                     <TextInput 
                         {...register('title')}
                         placeholder="Tîtulo ..."

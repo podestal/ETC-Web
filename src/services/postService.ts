@@ -1,5 +1,10 @@
 import APIClient from "./apiClient"
 
+export interface PostData {
+    post: Post,
+    access: string
+}
+
 export interface Author {
     id: number,
     first_name: string,
@@ -18,4 +23,8 @@ export interface Post {
     created_by?: Author
 }
 
-export default new APIClient<Post>('/posts/')
+const getPostService = (postId?: number) => {
+    return new APIClient<Post>(`/posts/${postId ? `${postId}/` : ''}`)
+}
+
+export default getPostService

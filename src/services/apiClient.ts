@@ -18,12 +18,19 @@ class APIClient<T> {
     }
 
     post = (data: T, access: string) => {
-        console.log('access post class', access)
         return axiosInstance
             .post<T>(this.endpoint, data, {
                 headers: {Authorization: `JWT ${access}`}
             })
             .then(res => res.data)
+    }
+
+    update = (data: T, access: string) => {
+        return axiosInstance
+        .patch<T>(this.endpoint, data, {
+            headers: {Authorization: `JWT ${access}`}
+        })
+        .then(res => res.data)
     }
 }
 
