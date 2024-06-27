@@ -33,6 +33,8 @@ const Login = () => {
             .then(res => res.data),
         onSuccess: (res ) => {
             populateAuth(res)
+            localStorage.setItem('access', res.access)
+            localStorage.setItem('refresh', res.refresh)
             navigate('/')
         },
         onError: err => console.log(err)

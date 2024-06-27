@@ -22,13 +22,15 @@ interface APIRes {
 interface AuthStore {
     access: string,
     refresh: string,
-    populateAuth: (jwt: APIRes) => void
+    populateAuth: (jwt: APIRes) => void,
+    wipeAuth: () => void
 }
 
 const useAuthStore = create<AuthStore>(set => ({
     access: '',
     refresh: '',
-    populateAuth: (jwt) => set(() => ({...jwt}))
+    populateAuth: (jwt) => set(() => ({...jwt})),
+    wipeAuth: () => set(() => ({access: '', refresh: ''}))
 }))
 
 export default useAuthStore
