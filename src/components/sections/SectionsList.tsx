@@ -1,5 +1,6 @@
 import useQuerySection from "../../hooks/sections/useSections"
 import SectionDetail from "./SectionDetail"
+import CreateSection from "./CreateSection"
 
 interface Props {
     postId: number
@@ -15,6 +16,9 @@ const SectionsList = ({ postId }: Props) => {
 
   return (
     <div className="w-full flex flex-col gap-12">
+        <CreateSection 
+            postId={postId}
+        />
         {sections?.map( section => <SectionDetail key={section.id} section={section}/>)}
     </div>
   )

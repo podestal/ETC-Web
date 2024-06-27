@@ -19,7 +19,7 @@ const NavBar = () => {
             <ul className="flex justify-center items-center gap-28 text-xl">
                 <Link className="hover:text-slate-400 hover:border-b-2 hover:border-slate-300 " to='/'>Blog</Link>
                 <Link className="hover:text-slate-400 hover:border-b-2 hover:border-slate-300 " to='/contact'>Contacto</Link>
-                <Link className="hover:text-slate-400 hover:border-b-2 hover:border-slate-300 " to='/about'>Nosotros</Link>
+                <Link className="hover:text-slate-400 hover:border-b-2 hover:border-slate-300 " to='/about'>Cursos</Link>
                 <Link onClick={handleLogout} className={` ${access ? 'bg-red-500 px-6 py-2 rounded-3xl font-bold hover:bg-red-400' : 'hover:text-slate-400 hover:border-b-2 hover:border-slate-300'}`} to='/login'>{access ? 'Logout' : 'Login'}</Link>
             </ul>
         </nav>

@@ -11,7 +11,7 @@ const useCreatePost = (handleSuccess: () => void): UseMutationResult<Post, Error
         mutationFn: (data: PostData) => postService.post(data.post, data.access),
         onSuccess: (savedPost) => {
             handleSuccess()
-            queryClient.setQueryData(CACHE_KEY_POSTS, ((posts: Post[]) => [...posts, {...savedPost}]))
+            queryClient.setQueryData(CACHE_KEY_POSTS, ((posts: Post[]) => [ {...savedPost}, ...posts]))
         },
         onError: err => console.log(err)
         

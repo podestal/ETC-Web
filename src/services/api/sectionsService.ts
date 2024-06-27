@@ -6,14 +6,19 @@ export interface Content {
 }
 
 export interface Section {
-    id: number,
+    id?: number,
     title: string,
     post: number,
-    content: Content[],
+    content?: Content[],
+}
+
+export interface SectionPostData {
+    section: Section,
+    access: string
 }
 
 const getSectionService = (postId: number) => {
-    return new APIClient<Section>(`/sections/?post=${postId}`)
+    return new APIClient<Section>(`/sections/?ordering=created_at&post=${postId}`)
 }
-
+// ?ordering=created_at
 export default getSectionService
