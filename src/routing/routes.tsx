@@ -5,6 +5,7 @@ import About from "../pages/About";
 import PostsPage from "../pages/PostsPage";
 import SinglePostPage from "../pages/SinglePostPage";
 import ErrorPage from "../pages/ErrorPage";
+import Login from "../pages/Login";
 
 const router = createBrowserRouter([
     {
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
             { path: ':id', element: <SinglePostPage /> },
             { path: 'contact', element: <Contact /> },
             { path: 'about', element: <About /> },
+            { path: 'login', element: <Login /> }
         ]
     },
 ])
