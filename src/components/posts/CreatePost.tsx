@@ -1,12 +1,10 @@
 import { Button } from "@tremor/react"
 import { useState } from "react"
 import PostForm from "./PostForm"
-import useCreatePost from "../../hooks/posts/useCreatePost"
 
 const CreatePost = () => {
 
   const [open, setOpen] = useState(false)
-  const createPost = useCreatePost()
 
   return (
     <>
@@ -14,7 +12,6 @@ const CreatePost = () => {
       <PostForm 
         open={open}
         setOpen={setOpen}
-        createPost={createPost}
       />
     </>
   )

@@ -18,15 +18,14 @@ const PostCard = ({ post, user }: Props) => {
     const createdAt = moment(post?.created_at).format("MMM Do YYYY");  
 
   return (
-    <div>
-        <>{console.log('user', user)}</>
+    <div className="w-full">
         <div className="w-full h-[500px] bg-no-repeat bg-cover bg-center rounded-3xl mb-10" style={{backgroundImage: `url(${post.img_url})`}}></div>
         <div className="flex justify-start items-center gap-8">
             {access && <UpdatePost post={post}/>}
             {access && <DeletePost post={post}/>}
             <p className="text-6xl hover:text-slate-400 cursor-pointer my-4"><Link to={`/${post.id}`} state={post}>{post.title}</Link></p>
         </div>
-        <p className="text-lg text-slate-400">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam vitae minus dolorum doloribus recusandae error, sint facilis, molestias aperiam natus doloremque, commodi sed distinctio placeat ea obcaecati nihil hic nulla.</p>
+        <p className="text-lg text-slate-400">{post.description} </p>
         <div className="flex gap-4 items-center">
             <p className="font-semibold my-4 text-xl">{fullName}</p>
             <span>-</span>

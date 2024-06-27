@@ -3,7 +3,6 @@ import { Icon } from "@tremor/react"
 import { useState } from "react"
 import PostForm from "./PostForm"
 import { Post } from "../../services/api/postService"
-import useUpdatePost from "../../hooks/posts/useUpdatePost"
 
 interface Props {
     post: Post
@@ -12,7 +11,6 @@ interface Props {
 const UpdatePost = ({ post }: Props) => {
 
     const [open, setOpen] = useState(false)
-    const updatePost = post.id && useUpdatePost(post.id)
 
   return (
     <>
@@ -21,7 +19,7 @@ const UpdatePost = ({ post }: Props) => {
             open={open}
             setOpen={setOpen}
             post={post}
-            updatePost={updatePost || undefined}
+            // updatePost={updatePost || undefined}
         />
     </>
   )

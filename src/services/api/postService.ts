@@ -6,7 +6,7 @@ export interface DeletePostData {
 
 export interface PostData {
     post: Post,
-    access: string
+    access: string,
 }
 
 export interface Author {
