@@ -1,7 +1,7 @@
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
 import { getCacheKeySections } from "../../constants/queryKeys";
-import getSectionService from "../../services/sectionsService";
-import { Section } from "../../services/sectionsService";
+import getSectionService from "../../services/api/sectionsService";
+import { Section } from "../../services/api/sectionsService";
 
 const useQuerySection = (postId: number): UseQueryResult<Section[], Error> => {
     const sectionService = getSectionService(postId)

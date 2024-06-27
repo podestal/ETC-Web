@@ -1,5 +1,5 @@
 import { useQuery, UseQueryResult } from "@tanstack/react-query";
-import getPostService, { Post } from "../../services/postService";
+import getPostService, { Post } from "../../services/api/postService";
 import { CACHE_KEY_POSTS } from "../../constants/queryKeys";
 
 const useQueryPosts = ():  UseQueryResult<Post[], Error> => {

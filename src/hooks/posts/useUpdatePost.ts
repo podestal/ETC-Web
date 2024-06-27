@@ -1,6 +1,6 @@
 import { useMutation, UseMutationResult } from "@tanstack/react-query";
-import getPostService, { PostData } from "../../services/postService";
-import { Post } from "../../services/postService";
+import getPostService, { PostData } from "../../services/api/postService";
+import { Post } from "../../services/api/postService";
 
 const useUpdatePost = (postId: number): UseMutationResult<Post, Error, PostData> => {
     // const queryClient = useQueryClient()

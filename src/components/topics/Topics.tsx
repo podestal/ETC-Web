@@ -1,7 +1,6 @@
 import useQueryTopics from "../../hooks/topics/useTopics"
 import useTopicStore from "./Store"
 import TopicCard from "./TopicCard"
-import { Button } from "@tremor/react"
 import useAuthStore from "../auth/Store"
 import CreatePost from "../posts/CreatePost"
 

@@ -13,7 +13,7 @@ class APIClient<T> {
 
     get = () => {
         return axiosInstance
-            .get(this.endpoint)
+            .get<T>(this.endpoint)
             .then(res => res.data)
     }
 

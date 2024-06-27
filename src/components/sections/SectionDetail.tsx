@@ -1,4 +1,4 @@
-import { Section } from "../../services/sectionsService"
+import { Section } from "../../services/api/sectionsService"
 
 interface Props {
     section: Section

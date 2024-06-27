@@ -10,7 +10,7 @@ const CreatePost = () => {
 
   return (
     <>
-      <Button onClick={() => setOpen(true)} className="mt-8" color="blue"><p className="text-xl">Nuevo Post</p></Button>
+      <Button onClick={() => setOpen(true)} className="mt-8" color="blue"><p className="text-xl">Nuevo Artículo</p></Button>
       <PostForm 
         open={open}
         setOpen={setOpen}

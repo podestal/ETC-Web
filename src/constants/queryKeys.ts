@@ -5,3 +5,5 @@ export const CACHE_KEY_POSTS = ['posts']
 export const getCacheKeySections = (postId: number) => {
     return [postId, 'sections']
 }
+
+export const CACHE_KEY_USER = ['user']

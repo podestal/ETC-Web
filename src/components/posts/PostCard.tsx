@@ -1,21 +1,24 @@
 import { Link } from "react-router-dom"
-import { Post } from "../../services/postService"
+import { Post } from "../../services/api/postService"
 import moment from "moment"
 import UpdatePost from "./UpdatePost"
 import useAuthStore from "../auth/Store"
+import { User } from "../../services/auth/userService"
 
 interface Props {
-    post: Post
+    post: Post,
+    user: User | undefined
 }
 
-const PostCard = ({ post }: Props) => {
+const PostCard = ({ post, user }: Props) => {
 
     const access = useAuthStore(store => store.access)
-    const fullName = `${post?.created_by?.first_name} ${post?.created_by?.last_name}`
+    const fullName = post?.created_by ? `${post?.created_by?.first_name} ${post?.created_by?.last_name}` : `${user?.first_name} ${user?.last_name}`
     const createdAt = moment(post?.created_at).format("MMM Do YYYY");  
 
   return (
     <div>
+        <>{console.log('user', user)}</>
         <div className="w-full h-[500px] bg-no-repeat bg-cover bg-center rounded-3xl mb-10" style={{backgroundImage: `url(${post.img_url})`}}></div>
         <div className="flex justify-start items-center gap-8">
             {access && <UpdatePost post={post}/>}
