@@ -17,9 +17,12 @@ class APIClient<T> {
             .then(res => res.data)
     }
 
-    post = (data: T) => {
+    post = (data: T, access: string) => {
+        console.log('access post class', access)
         return axiosInstance
-            .post<T>(this.endpoint, data)
+            .post<T>(this.endpoint, data, {
+                headers: {Authorization: `JWT ${access}`}
+            })
             .then(res => res.data)
     }
 }

@@ -22,8 +22,6 @@ const PostsPage = () => {
             />
         </div>
     </>
-    // Topics
-    // Posts
     // Subscription future
   )
 }

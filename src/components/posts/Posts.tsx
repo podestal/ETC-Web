@@ -15,7 +15,7 @@ const Posts = ({ posts }: Props) => {
     const filteredPosts = topic === 0  ? posts : posts?.filter( post => post.topic == topic)
 
     return (
-        <div className="flex flex-col flex-1 items-start justify-start gap-12 mt-12 ml-14">
+        <div className="flex flex-col flex-1 items-start justify-start gap-12 mt-12 ml-[300px]">
             {filteredPosts
                 ?.map( post => <PostCard key={post.id} post={post} />)}
         </div>

@@ -9,12 +9,13 @@ export interface Author {
 }
 
 export interface Post {
-    id: number,
+    id?: number,
     title: string,
     topic: number,
-    created_at: string,
+    created_at?: string,
     img_url: string,
-    created_by: Author
+    description: string,
+    created_by?: Author
 }
 
-export default new APIClient<Post>('/posts')
+export default new APIClient<Post>('/posts/')

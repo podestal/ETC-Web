@@ -3,6 +3,7 @@ import useTopicStore from "./Store"
 import TopicCard from "./TopicCard"
 import { Button } from "@tremor/react"
 import useAuthStore from "../auth/Store"
+import CreatePost from "../posts/CreatePost"
 
 const Topics = () => {
 
@@ -17,7 +18,7 @@ const Topics = () => {
     if (isError) return <p>{error.message}</p>
 
   return (
-    <div className="w-[280px] my-4 flex flex-col justify-start items-center gap-8">
+    <div className="w-[280px] my-4 flex flex-col justify-start items-start gap-8 fixed">
         <h2 className="text-3xl my-10 font-bold">Categorías</h2>
         <ul className="flex flex-col gap-12">
             <div className={`flex justify-start items-center gap-4 ${topic == 0 && 'bg-slate-900'} py-2 px-4 rounded-3xl`}>
@@ -27,7 +28,7 @@ const Topics = () => {
             
             {topics?.map(topic => <TopicCard key={topic.id} topic={topic}/>)}
         </ul>
-        {access && <Button className="mt-8" color="blue"><p className="text-xl">Nuevo Post</p></Button>}
+        {access && <CreatePost />}
     </div>
   )
 }
