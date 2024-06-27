@@ -5,9 +5,12 @@ import { z } from "zod"
 import useCreateSection from "../../hooks/sections/useCreateSection"
 import useAuthStore from "../auth/Store"
 import { useState } from "react"
+import { Section } from "../../services/api/sectionsService"
+import useUpdateSection from "../../hooks/sections/useUpdateSection"
 
 interface Props {
     postId: number,
+    section?: Section,
     open: boolean,
     setOpen: (state: boolean) => void
 }
@@ -19,7 +22,7 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>
 
-const SectionForm = ({ postId, open, setOpen } : Props) => {
+const SectionForm = ({ postId, open, setOpen, section } : Props) => {
 
     // ERROR HANDLING
     const [disable, setDisable] = useState(false)
@@ -27,8 +30,8 @@ const SectionForm = ({ postId, open, setOpen } : Props) => {
     const [error, setError] = useState(false)
 
     const {register, handleSubmit, reset, formState} = useForm<FormData>({resolver: zodResolver(schema), values:{
-        postId,
-        title: ''
+        postId: postId,
+        title: section?.title || ''
     }})
 
 
@@ -49,10 +52,12 @@ const SectionForm = ({ postId, open, setOpen } : Props) => {
     }
 
     const sectionCreate = useCreateSection(postId, handleSuccess)
+    const sectionUpdate = useUpdateSection(postId, section?.id || 0, handleSuccess)
     const access = useAuthStore(store => store.access)
 
     const onSubmit = (data: FieldValues) => {
-        sectionCreate.mutate({ section: {title: data.title, post: data.postId}, access })
+        !section && sectionCreate.mutate({ section: {title: data.title, post: data.postId}, access })
+        section && sectionUpdate.mutate({ section: {title: data.title}, access })
     }
 
   return (

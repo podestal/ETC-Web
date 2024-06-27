@@ -8,7 +8,7 @@ export interface Content {
 export interface Section {
     id?: number,
     title: string,
-    post: number,
+    post?: number,
     content?: Content[],
 }
 
@@ -21,7 +21,7 @@ export interface DeleteSectionData {
     access: string
 }
 
-const getSectionService = (postId: number, sectionId?: number) => {
+const getSectionService = (postId?: number, sectionId?: number) => {
     const SECTION_URL = sectionId ? `/sections/${sectionId}/` : `/sections/?ordering=created_at&post=${postId}`
     return new APIClient<Section>(SECTION_URL)
 }

@@ -1,6 +1,7 @@
 import { Section } from "../../services/api/sectionsService"
 import useAuthStore from "../auth/Store"
 import DeleteSection from "./DeleteSection"
+import UpdateSection from "./UpdateSection"
 
 interface Props {
     section: Section
@@ -14,6 +15,7 @@ const SectionDetail = ({ section, postId }: Props) => {
   return (
     <div className="w-full flex flex-col justify-center items-start gap-8">
         <div className="flex gap-8 items-center">
+            {access && <UpdateSection section={section} postId={postId}/>}
             {access && <DeleteSection section={section} postId={postId}/>}
             <h3 className="text-5xl font-bold">{section.title}</h3>
         </div>
