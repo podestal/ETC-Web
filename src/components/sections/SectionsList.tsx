@@ -1,6 +1,7 @@
 import useQuerySection from "../../hooks/sections/useSections"
 import SectionDetail from "./SectionDetail"
 import CreateSection from "./CreateSection"
+import useAuthStore from "../auth/Store"
 
 interface Props {
     postId: number
@@ -8,6 +9,8 @@ interface Props {
 
 const SectionsList = ({ postId }: Props) => {
 
+    const access = useAuthStore(store => store.access)
+    
     const {data: sections, isLoading, isError, error} = useQuerySection(postId)
 
     if (isLoading) return <p>Loading ...</p>
@@ -16,10 +19,9 @@ const SectionsList = ({ postId }: Props) => {
 
   return (
     <div className="w-full flex flex-col gap-12">
+        <>{console.log('sections in list', sections)}</>
         {sections?.map( section => <SectionDetail key={section.id} section={section} postId={postId}/>)}
-        <CreateSection 
-            postId={postId}
-        />
+        {access && <CreateSection postId={postId} />}
     </div>
   )
 }

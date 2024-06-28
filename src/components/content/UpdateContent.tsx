@@ -1,18 +1,32 @@
-import { RiEdit2Line } from "@remixicon/react"
+import { RiEdit2Line, RiCloseLine } from "@remixicon/react"
 import { Icon } from "@tremor/react"
-import { useState } from "react"
+import { Content } from "../../services/api/contentService"
+import ContentForm from "./ContentForm"
 
 interface Props {
-    contentId: number
+    update: boolean
+    setUpdate: (state: boolean) => void
+    content: Content
+    postId: number
+    sectionId: number
 }
 
-const UpdateContent = ({ contentId }: Props) => {
-
-    const [open, setOpen] = useState(false)
+const UpdateContent = ({ update, setUpdate, content, postId, sectionId }: Props) => {
 
   return (
     <>
-        <Icon onClick={() => setOpen(true)} className="cursor-pointer" icon={RiEdit2Line} size="lg"/>
+        {update 
+        ?
+        <Icon onClick={() => setUpdate(false)} color="red" className="cursor-pointer" icon={RiCloseLine} size="lg"/>
+        :
+        <Icon onClick={() => setUpdate(true)} className="cursor-pointer" icon={RiEdit2Line} size="lg"/>
+        }
+        {update && <ContentForm 
+            postId={postId}
+            sectionId={sectionId}
+            content={content}
+            setUpdate={setUpdate}
+        />}
     </>
   )
 }

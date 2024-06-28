@@ -1,9 +1,10 @@
 import APIClient from "./apiClient"
+import { Content } from "./contentService"
 
-export interface Content {
-    id: number,
-    content: string
-}
+// export interface Content {
+//     id: number,
+//     content: string
+// }
 
 export interface Section {
     id?: number,

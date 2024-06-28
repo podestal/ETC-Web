@@ -10,7 +10,10 @@ const useCreateSection = (postId: number, handleSuccess: () => void): UseMutatio
         mutationFn: (data: SectionPostData) => sectionService.post(data.section, data.access),
         onSuccess: res => {
             handleSuccess()
-            queryClient.setQueryData(CACHE_KEY_SECTION, ((sections: Section[]) => [...sections, {...res}]))
+            console.log('new section', res)
+            console.log('CACHE_KEY_SECTION', CACHE_KEY_SECTION);
+            console.log('cache data', queryClient.getQueryData(CACHE_KEY_SECTION));
+            queryClient.setQueryData(CACHE_KEY_SECTION, ((sections: Section[]) => [...sections, {...res, content: []}]))
         },
         onError: err => console.log('Error', err),
     })

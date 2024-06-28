@@ -8,6 +8,7 @@ const NavBar = () => {
     const handleLogout = () => {
         if (access.length > 0) {
             wipeAuth()
+            localStorage.clear()
         }
         return
     }

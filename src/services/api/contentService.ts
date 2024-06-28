@@ -8,7 +8,7 @@ export interface Content {
     id?: number,
     content: string,
     created_at?: string,
-    section: 4,
+    section: number,
 }
 
 export interface ContentPostData {

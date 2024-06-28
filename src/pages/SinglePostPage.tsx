@@ -6,6 +6,7 @@ const SinglePostPage = () => {
 
     const location = useLocation()
     const post = location.state
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);

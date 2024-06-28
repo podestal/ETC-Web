@@ -6,10 +6,14 @@ import { FieldValues, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod/src/zod.js'
 import useAuthStore from '../auth/Store'
 import { useState } from 'react'
+import useUpdateContent from '../../hooks/content/useUpdateContent'
+import { Content } from '../../services/api/contentService'
 
 interface Props {
     sectionId: number
-    postId: number
+    postId: number,
+    content?: Content
+    setUpdate?:(state: boolean) => void
 }
 
 const schema = z.object({
@@ -19,17 +23,22 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>
 
-const ContentForm = ({ sectionId, postId }: Props) => {
+const ContentForm = ({ sectionId, postId, content, setUpdate }: Props) => {
 
+    const contentId = content?.id
     const access = useAuthStore(store => store.access)
 
     const [success, setSuccess] = useState(false)
     const [error, setError] = useState(false)
 
     const {register, handleSubmit, reset} = useForm<FormData>({resolver: zodResolver(schema), values:{
-        content: '',
+        content: content?.content || '',
         section: sectionId,
     }})
+
+    const handleUpdate = () => {
+        setUpdate(false)
+    }
 
     const handleSuccess = () => {
         setSuccess(true)
@@ -46,9 +55,11 @@ const ContentForm = ({ sectionId, postId }: Props) => {
     }
 
     const contentCreate = useCreateContent(sectionId, postId, handleSuccess, handleError)
+    const contentUpdate = useUpdateContent(contentId, postId, handleUpdate)
 
     const onSubmit = (data: FieldValues ) => {
-        contentCreate.mutate({content: {content: data.content, section: data.section}, access })
+        !contentId && contentCreate.mutate({content: {content: data.content, section: data.section}, access })
+        contentId && contentUpdate.mutate({content: {content: data.content, section: data.section}, access })
     }
 
   return (
