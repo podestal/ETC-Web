@@ -23,7 +23,7 @@ const PostCard = ({ post, user }: Props) => {
         <div className="flex justify-start items-center gap-8">
             {access && <UpdatePost post={post}/>}
             {access && <DeletePost post={post}/>}
-            <p className="text-6xl hover:text-slate-400 cursor-pointer my-4"><Link to={`/${post.id}`} state={post}>{post.title}</Link></p>
+            <p className="text-6xl hover:text-slate-400 cursor-pointer my-4 leading-[4rem]"><Link to={`/${post.id}`} state={post}>{post.title}</Link></p>
         </div>
         <p className="text-lg text-slate-400">{post.description} </p>
         <div className="flex gap-4 items-center">

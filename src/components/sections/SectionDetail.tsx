@@ -25,9 +25,12 @@ const SectionDetail = ({ section, postId }: Props) => {
             <h3 className="text-5xl font-bold">{section.title}</h3>
         </div>
         {section?.content?.map( cont => <p className="text-2xl leading-[3.2rem]" key={cont.id}>{cont.content}</p>)}
-        <ContentForm 
-            sectionId={sectionId}
-        />
+        {access &&
+            <ContentForm 
+                sectionId={sectionId}
+                postId={postId}
+            />
+        }
     </div>
   )
 }
