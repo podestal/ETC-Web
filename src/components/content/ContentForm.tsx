@@ -1,0 +1,53 @@
+import { RiSaveLine } from '@remixicon/react'
+import { Button, Icon } from '@tremor/react'
+import useCreateContent from '../../hooks/content/useCreateContent'
+import { z } from 'zod'
+import { FieldValues, useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod/src/zod.js'
+import useAuthStore from '../auth/Store'
+
+// id?: number,
+// content: string,
+// created_at?: string,
+// section: 4,
+
+interface Props {
+    sectionId: number
+}
+
+const schema = z.object({
+    content: z.string().min(1, {message: 'El contenido es necesario'}),
+    section: z.number()
+})
+
+type FormData = z.infer<typeof schema>
+
+const ContentForm = ({ sectionId }: Props) => {
+
+    const access = useAuthStore(store => store.access)
+    const contentCreate = useCreateContent(sectionId)
+    const {register, handleSubmit, reset, formState} = useForm<FormData>({resolver: zodResolver(schema), values:{
+        content: '',
+        section: sectionId,
+    }})
+
+    const onSubmit = (data: FieldValues ) => {
+        contentCreate.mutate({content: {content: data.content, section: data.section}, access })
+    }
+
+  return (
+    <div className="w-full flex">
+        <textarea 
+            {...register('content')}
+            className="p-6 text-xl bg-transparent rounded-2xl w-full h-[220px] text-slate-200 border-slate-800"
+            placeholder="Contenido ..."
+        />
+        <div className="flex flex-col justify-center items-center gap-12 mx-10">
+            {/* <Icon onClick={() => console.log('Empty')} color='red' className="cursor-pointer" icon={RiDeleteBinLine} size="lg"/> */}
+            <Icon onClick={handleSubmit(onSubmit)} color='blue' className="cursor-pointer" icon={RiSaveLine} size="lg"/>
+        </div>
+    </div>
+  )
+}
+
+export default ContentForm
