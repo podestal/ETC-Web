@@ -19,9 +19,11 @@ const Index = () => {
     }, [])
 
   return (
-    <div className="w-[100%] min-h-[100vh] bg-slate-950 text-slate-200">
-        <NavBar />
-        <div className="xl:max-w-[1280px] min-h-[100vh] max-w-[850px] mx-auto py-10">
+    <div className="w-[100%] bg-slate-950 text-slate-200">
+        <div className="relative z-10">
+            <NavBar />
+        </div>
+        <div className="xl:max-w-[1280px] min-h-[100vh] max-w-[850px] mx-auto">
             <Outlet />
         </div>
         <Footer />
