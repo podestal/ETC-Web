@@ -1,7 +1,7 @@
 import { Dialog, DialogPanel, Button } from "@tremor/react"
-import { DeleteSectionData, Section } from "../../services/api/sectionsService"
+import { DeleteSectionData, Section } from "../../../services/api/sectionsService"
 import { UseMutationResult } from "@tanstack/react-query"
-import useAuthStore from "../auth/Store"
+import useAuthStore from "../../auth/Store"
 
 interface Props {
     open: boolean,

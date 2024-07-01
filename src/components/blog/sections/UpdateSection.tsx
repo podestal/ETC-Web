@@ -1,7 +1,7 @@
 import { RiEdit2Line } from '@remixicon/react'
 import { Icon } from '@tremor/react'
 import { useState } from 'react'
-import { Section } from '../../services/api/sectionsService'
+import { Section } from '../../../services/api/sectionsService'
 import SectionForm from './SectionForm'
 
 interface Props {

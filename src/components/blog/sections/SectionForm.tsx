@@ -2,11 +2,11 @@ import { zodResolver } from "@hookform/resolvers/zod/src/zod.js"
 import { Dialog, DialogPanel, TextInput, Button, Callout } from "@tremor/react"
 import { FieldValues, useForm } from "react-hook-form"
 import { z } from "zod"
-import useCreateSection from "../../hooks/sections/useCreateSection"
-import useAuthStore from "../auth/Store"
+import useCreateSection from "../../../hooks/sections/useCreateSection"
+import useAuthStore from "../../auth/Store"
 import { useState } from "react"
-import { Section } from "../../services/api/sectionsService"
-import useUpdateSection from "../../hooks/sections/useUpdateSection"
+import { Section } from "../../../services/api/sectionsService"
+import useUpdateSection from "../../../hooks/sections/useUpdateSection"
 
 interface Props {
     postId: number,

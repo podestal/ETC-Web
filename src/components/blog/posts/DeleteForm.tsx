@@ -1,7 +1,7 @@
 import { Dialog, DialogPanel, Button } from "@tremor/react"
-import { DeletePostData, Post } from "../../services/api/postService"
+import { DeletePostData, Post } from "../../../services/api/postService"
 import { UseMutationResult } from "@tanstack/react-query"
-import useAuthStore from "../auth/Store"
+import useAuthStore from "../../auth/Store"
 
 interface Props {
     open: boolean,

@@ -1,7 +1,7 @@
-import { Content } from "../../services/api/contentService"
+import { Content } from "../../../services/api/contentService"
 import DeleteContent from "./DeleteContent"
 import UpdateContent from "./UpdateContent"
-import useAuthStore from "../auth/Store"
+import useAuthStore from "../../auth/Store"
 import { useState } from "react"
 
 interface Props {

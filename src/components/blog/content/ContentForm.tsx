@@ -1,13 +1,13 @@
 import { RiSaveLine } from '@remixicon/react'
 import { Icon } from '@tremor/react'
-import useCreateContent from '../../hooks/content/useCreateContent'
+import useCreateContent from '../../../hooks/content/useCreateContent'
 import { z } from 'zod'
 import { FieldValues, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod/src/zod.js'
-import useAuthStore from '../auth/Store'
+import useAuthStore from '../../auth/Store'
 import { useState } from 'react'
-import useUpdateContent from '../../hooks/content/useUpdateContent'
-import { Content } from '../../services/api/contentService'
+import useUpdateContent from '../../../hooks/content/useUpdateContent'
+import { Content } from '../../../services/api/contentService'
 
 interface Props {
     sectionId: number
@@ -37,7 +37,7 @@ const ContentForm = ({ sectionId, postId, content, setUpdate }: Props) => {
     }})
 
     const handleUpdate = () => {
-        setUpdate(false)
+        setUpdate && setUpdate(false)
     }
 
     const handleSuccess = () => {

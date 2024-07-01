@@ -2,8 +2,8 @@ import { RiDeleteBinLine } from '@remixicon/react'
 import { Icon } from '@tremor/react'
 import { useState } from 'react'
 import DeleteSectionForm from './DeleteSectionForm'
-import { Section } from '../../services/api/sectionsService'
-import useDeleteSection from '../../hooks/sections/useRemoveSection'
+import { Section } from '../../../services/api/sectionsService'
+import useDeleteSection from '../../../hooks/sections/useRemoveSection'
 
 interface Props {
     section: Section ,

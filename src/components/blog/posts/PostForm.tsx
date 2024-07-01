@@ -2,14 +2,14 @@ import { Dialog, DialogPanel, TextInput, Button, Callout } from "@tremor/react"
 import { FieldValues, useForm } from 'react-hook-form'
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod/src/zod.js"
-import useAuthStore from "../auth/Store"
-import { Post } from "../../services/api/postService"
+import useAuthStore from "../../auth/Store"
+import { Post } from "../../../services/api/postService"
 import { UseMutationResult } from "@tanstack/react-query"
-import { PostData } from "../../services/api/postService"
+import { PostData } from "../../../services/api/postService"
 import { useState } from "react"
-import useUpdatePost from "../../hooks/posts/useUpdatePost"
-import useQueryTopics from "../../hooks/topics/useTopics"
-import useCreatePost from "../../hooks/posts/useCreatePost" 
+import useUpdatePost from "../../../hooks/posts/useUpdatePost"
+import useQueryTopics from "../../../hooks/topics/useTopics"
+import useCreatePost from "../../../hooks/posts/useCreatePost" 
 
 interface Props {
     open: boolean,

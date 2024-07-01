@@ -2,7 +2,7 @@ import { RiEdit2Line } from "@remixicon/react"
 import { Icon } from "@tremor/react"
 import { useState } from "react"
 import PostForm from "./PostForm"
-import { Post } from "../../services/api/postService"
+import { Post } from "../../../services/api/postService"
 
 interface Props {
     post: Post

@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom"
-import SectionsList from "../components/sections/SectionsList"
+import SectionsList from "../components/blog/sections/SectionsList"
 import { useEffect } from "react"
 
 const SinglePostPage = () => {

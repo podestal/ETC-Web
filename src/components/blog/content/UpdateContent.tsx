@@ -1,6 +1,6 @@
 import { RiEdit2Line, RiCloseLine } from "@remixicon/react"
 import { Icon } from "@tremor/react"
-import { Content } from "../../services/api/contentService"
+import { Content } from "../../../services/api/contentService"
 import ContentForm from "./ContentForm"
 
 interface Props {

@@ -1,6 +1,6 @@
 import { Dialog, DialogPanel, Button } from '@tremor/react'
-import useDeleteContent from '../../hooks/content/useRemoveContent'
-import useAuthStore from '../auth/Store'
+import useDeleteContent from '../../../hooks/content/useRemoveContent'
+import useAuthStore from '../../auth/Store'
 
 interface Props {
     open: boolean

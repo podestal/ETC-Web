@@ -1,8 +1,8 @@
-import { Post } from "../../services/api/postService"
+import { Post } from "../../../services/api/postService"
 import useTopicStore from "../topics/Store"
 import PostCard from "./PostCard"
-import useQueryUser from "../../hooks/auth/useUser"
-import useAuthStore from "../auth/Store"
+import useQueryUser from "../../../hooks/auth/useUser"
+import useAuthStore from "../../auth/Store"
 
 
 interface Props {

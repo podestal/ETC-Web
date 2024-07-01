@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import Posts from '../../src/components/posts/Posts'
+import Posts from '../../src/components/blog/posts/Posts'
 import { Post } from '../../src/services/api/postService'
 import { describe, expect, it } from 'vitest'
 import '@testing-library/jest-dom/vitest'

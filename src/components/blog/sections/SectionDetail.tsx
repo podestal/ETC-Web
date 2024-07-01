@@ -1,5 +1,5 @@
-import { Section } from "../../services/api/sectionsService"
-import useAuthStore from "../auth/Store"
+import { Section } from "../../../services/api/sectionsService"
+import useAuthStore from "../../auth/Store"
 import DeleteSection from "./DeleteSection"
 import UpdateSection from "./UpdateSection"
 import ContentList from "../content/ContentList"

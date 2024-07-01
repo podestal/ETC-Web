@@ -1,7 +1,7 @@
-import useQueryTopics from "../../hooks/topics/useTopics"
+import useQueryTopics from "../../../hooks/topics/useTopics"
 import useTopicStore from "./Store"
 import TopicCard from "./TopicCard"
-import useAuthStore from "../auth/Store"
+import useAuthStore from "../../auth/Store"
 import CreatePost from "../posts/CreatePost"
 
 const Topics = () => {

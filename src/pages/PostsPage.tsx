@@ -1,6 +1,6 @@
 import useQueryPosts from "../hooks/posts/usePosts"
-import Posts from "../components/posts/Posts"
-import Topics from "../components/topics/Topics"
+import Posts from "../components/blog/posts/Posts"
+import Topics from "../components/blog/topics/Topics"
 
 
 const PostsPage = () => {

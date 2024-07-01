@@ -1,5 +1,5 @@
-import { Content } from "../../services/api/contentService"
-import useAuthStore from "../auth/Store"
+import { Content } from "../../../services/api/contentService"
+import useAuthStore from "../../auth/Store"
 import ContentForm from "./ContentForm"
 import DetailedContent from "./DetailedContent"
 

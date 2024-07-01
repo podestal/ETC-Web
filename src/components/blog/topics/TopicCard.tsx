@@ -1,4 +1,4 @@
-import { Topic } from "../../services/api/topicsService"
+import { Topic } from "../../../services/api/topicsService"
 import useTopicStore from "./Store"
 
 interface Props {
