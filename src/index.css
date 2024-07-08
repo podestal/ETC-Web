@@ -10,3 +10,23 @@
 body {
     background-color: rgb(2 6 23);
 }
+
+@layer utilities {
+    .card-wrapper {
+      @apply relative overflow-hidden rounded-2xl bg-transparent w-[100%] h-[200px]
+    }
+  
+    .card-wrapper::before {
+      background: conic-gradient(
+        /* #04b0ee 0deg,
+        #04b0ee 0deg */
+        rgba(4,176,238, 0.8) 0deg,
+        rgba(4, 195, 238, 0.8) 0deg,
+        transparent 80deg
+      );
+      @apply absolute left-[-25%] top-[-25%] h-[150%] w-[150%] animate-border-spin content-[''];
+    }
+    .card-content {
+      @apply absolute left-[1px] top-[1px] h-[calc(100%-2px)] w-[calc(100%-2px)] rounded-2xl bg-slate-950;
+    }
+  }

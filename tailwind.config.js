@@ -12,6 +12,37 @@ export default {
   theme: {
     transparent: 'transparent',
     current: 'currentColor',
+    keyframes: {
+      'border-spin': {
+        '100%': {
+          transform: 'rotate(-360deg)',
+        },
+      },
+    },
+    animation: {
+      'border-spin': 'border-spin 7s linear infinite',
+    },
+    screens: {
+      'sm': '640px',
+      // => @media (min-width: 640px) { ... }
+  
+      'md': '768px',
+      // => @media (min-width: 768px) { ... }
+  
+      'lg': '1024px',
+      // => @media (min-width: 1024px) { ... }
+  
+      'xl': '1280px',
+      // => @media (min-width: 1280px) { ... }
+  
+      '2xl': '1536px',
+      // => @media (min-width: 1536px) { ... }
+    },
+    fontFamily: {
+      palanquin: ['Palanquin', 'sans-serif'],
+      montserrat: ['Montserrat', 'sans-serif'],
+      poppins: ['Poppins, sans-serif'],
+    },
     extend: {
       colors: {
         // light mode

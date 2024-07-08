@@ -1,5 +1,5 @@
 import {motion} from 'framer-motion'
-import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const Hero = () => {
 
@@ -10,9 +10,9 @@ const Hero = () => {
         whileInView={{opacity: 1, translateY: 0}}
         transition={{duration: 1.3}}
         className='h-screen w-full flex flex-col items-center justify-center gap-12'>
-        <h2 className="text-9xl font-montserrat text-slate-200">Aprende</h2>
-        <p className="w-[60%] text-center text-2xl font-poppins text-slate-400 leading-10"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis sequi rem temporibus consectetur voluptatibus, voluptates omnis sint culpa eos, ad </p>
-        <p className="px-6 py-2 bg-blue-700 rounded-3xl cursor-pointer hover:bg-blue-600 ">Conoce más</p>
+        <h2 className="text-8xl font-montserrat text-slate-200 text-center">Aprende a programar rápido</h2>
+        <p className="w-[60%] text-center text-2xl font-poppins text-slate-400 leading-10">El Teclado de Sócrates es una plataforma de educación que combina aprendizaje rápido, buenas prácticas, proyectos prácticos y una sólida base teórica </p>
+        <Link to='/courses'><p className="px-6 py-2 bg-blue-700 rounded-3xl cursor-pointer hover:bg-blue-600 ">Conoce más</p></Link>
       </motion.div>
       <motion.div 
         initial={{opacity: 0, translateX: '100%'}}
