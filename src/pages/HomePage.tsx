@@ -9,8 +9,9 @@ const HomePage = () => {
     <div className="w-[100%] bg-slate-950 text-slate-200">
         <Hero />
         <Newsletter />
-        <BlogFeatures />
-        <Courses />
+        {/* <BlogFeatures />
+         */}
+         <Courses />
     </div>
   )
 }
