@@ -4,7 +4,7 @@ import { TextInput, Button } from '@tremor/react'
 
 const Newsletter = () => {
   return (
-    <div className="min-h-[180vh] flex flex-col  justify-center gap-16">
+    <div className="min-h-[120vh] flex flex-col  justify-center gap-16">
         <motion.h2 
             initial={{opacity: 0, translateX: -200}}
             whileInView={{opacity: 1, translateX: 0}}

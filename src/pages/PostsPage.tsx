@@ -15,7 +15,6 @@ const PostsPage = () => {
     <>
         <div className="w-full flex gap-12 min-h-[100vh]">
             <Topics 
-
             />
             <Posts 
                 posts={posts}

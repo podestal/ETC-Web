@@ -5,6 +5,7 @@ import UpdatePost from "./UpdatePost"
 import DeletePost from "./DeletePost"
 import useAuthStore from "../../auth/Store"
 import { User } from "../../../services/auth/userService"
+import {motion} from 'framer-motion'
 
 interface Props {
     post: Post,
@@ -18,7 +19,11 @@ const PostCard = ({ post, user }: Props) => {
     const createdAt = moment(post?.created_at).format("MMM Do YYYY");  
 
   return (
-    <div className="w-full">
+    <motion.div 
+        initial={{opacity: 0, translateX: 100}}
+        whileInView={{opacity: 1, translateX: 0}}
+        transition={{duration: 1.2}}
+        className="w-full">
         <div className="w-full h-[370px] bg-no-repeat bg-cover bg-center rounded-3xl mb-10" style={{backgroundImage: `url(${post.img_url})`}}></div>
         <div className="flex justify-start items-center gap-8">
             {access && <UpdatePost post={post}/>}
@@ -31,7 +36,7 @@ const PostCard = ({ post, user }: Props) => {
             <span>-</span>
             <p className="my-4 text-xl">{createdAt}</p>
         </div>
-    </div>
+    </motion.div>
   )
 }
 
