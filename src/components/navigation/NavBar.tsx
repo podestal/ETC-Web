@@ -16,7 +16,7 @@ const NavBar = () => {
 
   return (
     <header className="">
-        <nav className="flex justify-between items-center h-[100px]">
+        <nav className="max-lg:hidden flex justify-between items-center h-[100px]">
             <Link to='/'><div style={{ backgroundImage: `url(${logo})` }} className="bg-cover w-[240px] h-[120px] ml-[-25px]"/></Link>
             <ul className="flex justify-center items-center gap-28 text-xl">
                 <Link className="hover:text-slate-400 hover:border-b-2 hover:border-slate-300" to='/posts'><p className="text-lg">Blog</p></Link>

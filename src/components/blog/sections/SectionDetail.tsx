@@ -22,7 +22,7 @@ const SectionDetail = ({ section, postId }: Props) => {
         <div className="flex gap-8 items-center">
             {access && <UpdateSection section={section} postId={postId}/>}
             {access && <DeleteSection section={section} postId={postId}/>}
-            <h3 className="text-5xl font-bold">{section.title}</h3>
+            <h3 className="text-5xl font-bold px-6">{section.title}</h3>
         </div>
         <ContentList 
             contents={contents}

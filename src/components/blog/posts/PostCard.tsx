@@ -23,12 +23,12 @@ const PostCard = ({ post, user }: Props) => {
         initial={{opacity: 0, translateX: 100}}
         whileInView={{opacity: 1, translateX: 0}}
         transition={{duration: 1.2}}
-        className="w-full">
-        <div className="w-full h-[370px] bg-no-repeat bg-cover bg-center rounded-3xl mb-10" style={{backgroundImage: `url(${post.img_url})`}}></div>
+        className="w-full px-6">
+        <div className="w-full h-[250px] lg:h-[370px] bg-no-repeat bg-cover bg-center rounded-3xl mb-10" style={{backgroundImage: `url(${post.img_url})`}}></div>
         <div className="flex justify-start items-center gap-8">
             {access && <UpdatePost post={post}/>}
             {access && <DeletePost post={post}/>}
-            <p className="text-6xl hover:text-slate-400 cursor-pointer my-4 leading-[4rem]"><Link to={`/posts/${post.id}`} state={post}>{post.title}</Link></p>
+            <p className="text-5xl lg:text-6xl hover:text-slate-400 cursor-pointer my-4 leading-[4rem]"><Link to={`/posts/${post.id}`} state={post}>{post.title}</Link></p>
         </div>
         <p className="text-lg text-slate-400">{post.description} </p>
         <div className="flex gap-4 items-center">

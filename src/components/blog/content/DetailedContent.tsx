@@ -20,12 +20,12 @@ const DetailedContent = ({content, postId, sectionId}: Props) => {
 
   return (
     <div 
-    className={`w-full flex justify-start items-center gap-8 
+    className={`w-full flex justify-start items-center gap-8 px-6
         ${access ? 'ml-8' : 'ml-2'}`}
     >
         {access && <UpdateContent sectionId={sectionId} postId={postId} update={update} setUpdate={setUpdate} content={content}/>}
         {access && !update && <DeleteContent contentId={contentId} postId={postId}/>}
-        {!update && <p className="text-2xl leading-[3.2rem]">{content.content}</p>}
+        {!update && <p className="lg:text-2xl text-xl lg:leading-[3.2rem] leading-10">{content.content}</p>}
 
     </div>
   )

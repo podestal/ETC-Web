@@ -1,6 +1,6 @@
 import {motion} from 'framer-motion'
 import { newsLetterData } from '../../data/landing'
-import { TextInput, Button } from '@tremor/react'
+// import { TextInput, Button } from '@tremor/react'
 
 const Newsletter = () => {
   return (
@@ -12,19 +12,19 @@ const Newsletter = () => {
             className="text-6xl font-montserrat text-center my-12">Nuestro Blog</motion.h2>
 
         {newsLetterData.map( single => (
-        <motion.div 
-            initial={{opacity: 0, translateX: single.styles == 'text-left' ? -200 : 200}}
-            whileInView={{opacity: 1, translateX: 0}}
-            transition={{duration: 1.2}}
-            className={`w-[60%] ${single.styles == 'text-left' && `self-end text-right` }`}
-            key={single.title}>
-                <div className='card-wrapper'>
-                    <div className='card-content flex flex-col gap-6 rounded-3xl px-6 py-4'>
-                        <h3 className='text-3xl font-palanquin font-bold'>{single.title}</h3>
-                        <p className='text-lg'>{single.description}</p>
+            <motion.div 
+                initial={{opacity: 0, translateX: single.styles == 'text-left' ? -200 : 200}}
+                whileInView={{opacity: 1, translateX: 0}}
+                transition={{duration: 1.2}}
+                className={`md:w-[60%] w-full ${single.styles == 'text-left' && `self-end text-right mx-4`}`}
+                key={single.title}>
+                    <div className='card-wrapper'>
+                        <div className='card-content flex flex-col gap-6 rounded-3xl px-6 py-4'>
+                            <h3 className='text-3xl font-palanquin font-bold'>{single.title}</h3>
+                            <p className='text-lg'>{single.description}</p>
+                        </div>
                     </div>
-                </div>
-        </motion.div>
+            </motion.div>
         ))}
         {/* <motion.div 
             initial={{opacity: 0, translateY: 200}}
