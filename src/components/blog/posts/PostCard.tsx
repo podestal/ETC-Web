@@ -19,7 +19,7 @@ const PostCard = ({ post, user }: Props) => {
 
   return (
     <div className="w-full">
-        <div className="w-full h-[500px] bg-no-repeat bg-cover bg-center rounded-3xl mb-10" style={{backgroundImage: `url(${post.img_url})`}}></div>
+        <div className="w-full h-[370px] bg-no-repeat bg-cover bg-center rounded-3xl mb-10" style={{backgroundImage: `url(${post.img_url})`}}></div>
         <div className="flex justify-start items-center gap-8">
             {access && <UpdatePost post={post}/>}
             {access && <DeletePost post={post}/>}

@@ -22,7 +22,7 @@ const Topics = () => {
         <ul className="flex flex-col gap-12">
             <div className={`flex justify-start items-center gap-4 ${topic == 0 && 'bg-slate-900'} py-2 px-4 rounded-3xl`}>
                 <div className={`w-[14px] h-[14px] rounded-full bg-slate-500`}></div>
-                <p onClick={() => select(0)} className="text-xl hover:text-slate-400 cursor-pointer">Todas las categorías</p>
+                <p onClick={() => select(0)} className="text-lg hover:text-slate-400 cursor-pointer">Todas las categorías</p>
             </div>
             
             {topics?.map(topic => <TopicCard key={topic.id} topic={topic}/>)}
