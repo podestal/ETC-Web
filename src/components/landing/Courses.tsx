@@ -1,8 +1,13 @@
 import { motion } from 'framer-motion'
 import reactImg from '../../assets/imgs/courses/react-course.jpg'
+import reactImgLoading from '../../assets/imgs/courses/react-course-s.jpg'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 const Courses = () => {
+
+    const [loading, setLoading] = useState(true)
+
   return (
     <div className="min-h-[120vh] flex flex-col justify-center items-center gap-12 mt-12">
         <motion.h3 
@@ -10,15 +15,24 @@ const Courses = () => {
             whileInView={{opacity: 1, translateY: 0}}
             transition={{duration: 1.2}}
             className='text-center text-7xl font-montserrat my-12'>Curso de React 19</motion.h3>
-        <motion.img 
-            src={reactImg} 
-            loading='lazy' 
-            alt="react-course-img" 
+        <motion.div
             initial={{opacity: 0, translateX: -200}}
             whileInView={{opacity: 1, translateX: 0}}
             transition={{duration: 1.2}}
-            className='w-[400px] h-full rounded-3xl' />
-            
+        >
+            {loading && <img 
+                src={reactImgLoading} 
+                alt="react-course-img" 
+                className='w-[400px] h-full rounded-3xl' 
+            />}
+            <img 
+                src={reactImg} 
+                loading='lazy' 
+                alt="react-course-img" 
+                className='w-[400px] h-full rounded-3xl' 
+                onLoad={() => setLoading(false)}
+            />
+        </motion.div>
         <motion.p 
             initial={{opacity: 0, translateX: -200}}
             whileInView={{opacity: 1, translateX: 0}}
