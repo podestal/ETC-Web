@@ -12,9 +12,18 @@ const NavBar = () => {
     const { scrollY } = useScroll()
     const [hidden, setHidden] = useState(false)
     const [show, setShow] = useState(false)
+    const [navBg, setNavBg] = useState(false)
 
     useMotionValueEvent(scrollY, 'change', latest => {
         const previous = scrollY.getPrevious()
+        console.log('latest', latest)
+
+        if (latest === 0) {
+            setNavBg(false)
+        } else {
+            setNavBg(true)
+        }
+        
         if (previous && previous < latest) {
             setHidden(true)
         } else {
@@ -38,7 +47,7 @@ const NavBar = () => {
         }}
         animate={hidden ? 'hidden' : 'visible'}
         transition={{ duration: 0.35, ease: 'easeInOut' }}  
-        className="w-full fixed lg:backdrop-blur-sm lg:bg-slate-950/60 top-0 left-0 z-50 flex justify-center items-center">
+        className={`w-full fixed ${navBg && 'lg:backdrop-blur-sm lg:bg-slate-950/60'} top-0 left-0 z-50 flex justify-center items-center`}>
         <nav className="w-[1080px] max-lg:hidden flex justify-between items-center h-[100px]">
             <Link to='/'><div style={{ backgroundImage: `url(${logo})` }} className="bg-cover w-[240px] h-[120px]"/></Link>
             <ul className="flex justify-center items-center gap-28 text-xl">
