@@ -5,6 +5,7 @@ import useAuthStore from "../../auth/Store"
 import { useState } from "react"
 import ContentCode from "./ContentCode"
 import TextContent from "./TextContent"
+import ImgContent from "./ImgContent"
 
 interface Props {
     content: Content,
@@ -34,6 +35,7 @@ const DetailedContent = ({content, postId, sectionId}: Props) => {
           <>
             {contentType === 'T' && <TextContent text={content.content}/>}
             {contentType === 'C' && <ContentCode code={content.content} language={content.language}/>}
+            {contentType === 'I' && <ImgContent img={content.content}/>}
           </>}
 
       </div>
