@@ -16,7 +16,7 @@ const ContentList = ({ contents, sectionId, postId }: Props) => {
     if (!contents) return null
 
   return (
-    <>
+    <>  
         {contents.map( cont => <DetailedContent key={cont.id} sectionId={sectionId} content={cont} postId={postId}/>)}
         {access &&
             <ContentForm 

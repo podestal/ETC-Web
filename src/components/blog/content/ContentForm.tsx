@@ -58,8 +58,8 @@ const ContentForm = ({ sectionId, postId, content, setUpdate }: Props) => {
     const contentUpdate = useUpdateContent(contentId, postId, handleUpdate)
 
     const onSubmit = (data: FieldValues ) => {
-        !contentId && contentCreate.mutate({content: {content: data.content, section: data.section}, access })
-        contentId && contentUpdate.mutate({content: {content: data.content, section: data.section}, access })
+        !contentId && contentCreate.mutate({content: {content: data.content, section: data.section, content_type: '', language: ''}, access })
+        contentId && contentUpdate.mutate({content: {content: data.content, section: data.section , content_type: '', language: ''}, access })
     }
 
   return (

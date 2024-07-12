@@ -9,6 +9,8 @@ export interface Content {
     content: string,
     created_at?: string,
     section: number,
+    content_type: string,
+    language: string,
 }
 
 export interface ContentPostData {
