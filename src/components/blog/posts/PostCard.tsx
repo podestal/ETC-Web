@@ -4,18 +4,16 @@ import moment from "moment"
 import UpdatePost from "./UpdatePost"
 import DeletePost from "./DeletePost"
 import useAuthStore from "../../auth/Store"
-import { User } from "../../../services/auth/userService"
 import {motion} from 'framer-motion'
 
 interface Props {
     post: Post,
-    user: User | undefined
 }
 
-const PostCard = ({ post, user }: Props) => {
+const PostCard = ({ post }: Props) => {
 
     const access = useAuthStore(store => store.access)
-    const fullName = post?.created_by ? `${post?.created_by?.first_name} ${post?.created_by?.last_name}` : `${user?.first_name} ${user?.last_name}`
+    const fullName = post?.created_by && `${post?.created_by?.first_name} ${post?.created_by?.last_name}`
     const createdAt = moment(post?.created_at).format("MMM Do YYYY");  
 
   return (

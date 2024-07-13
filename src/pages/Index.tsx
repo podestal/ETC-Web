@@ -3,6 +3,7 @@ import { useEffect } from "react"
 import NavBar from "../components/navigation/NavBar"
 import Footer from "../components/navigation/Footer"
 import useAuthStore from "../components/auth/Store"
+import Lenis from "lenis"
 
 const Index = () => {
 
@@ -16,6 +17,14 @@ const Index = () => {
                 populateAuth({access: localAccess, refresh: localRefresh})
             }
         }
+        const lenis = new Lenis()
+
+        function raf(time: number) {
+            lenis.raf(time)
+            requestAnimationFrame(raf)
+          }
+      
+          requestAnimationFrame(raf)
     }, [])
 
   return (

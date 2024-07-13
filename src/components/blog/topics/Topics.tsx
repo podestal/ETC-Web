@@ -4,18 +4,17 @@ import TopicCard from "./TopicCard"
 import useAuthStore from "../../auth/Store"
 import CreatePost from "../posts/CreatePost"
 import {motion} from 'framer-motion'
+import { Topic } from "../../../services/api/topicsService"
 
-const Topics = () => {
+interface Props {
+  topics: Topic[] | undefined
+}
+
+const Topics = ({ topics }: Props) => {
 
     const {topic, select} = useTopicStore()
 
     const {access} = useAuthStore()
-
-    const { data: topics, isLoading, isError, error } = useQueryTopics()
-
-    if (isLoading) return <p>Loading ...</p>
-
-    if (isError) return <p>{error.message}</p>
 
   return (
     <motion.div 
