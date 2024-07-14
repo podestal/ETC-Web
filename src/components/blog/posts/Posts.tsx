@@ -1,8 +1,7 @@
 import { Post } from "../../../services/api/postService"
 import useTopicStore from "../topics/Store"
 import PostCard from "./PostCard"
-import useQueryUser from "../../../hooks/auth/useUser"
-import useAuthStore from "../../auth/Store"
+import {motion} from 'framer-motion'
 
 
 interface Props {
@@ -12,7 +11,11 @@ interface Props {
 const Posts = ({ posts }: Props) => {
     
     if (posts?.length == 0) return (
-        <p className="text-2xl w-full flex justify-center items-center">Aún no hay artículos</p>
+        <motion.p 
+            initial={{opacity: 0, translateX: 100}}
+            whileInView={{opacity: 1, translateX: 0}}
+            transition={{duration: 1}}
+            className="text-2xl w-full flex justify-center items-center">Aún no hay artículos</motion.p>
     )
     const topic = useTopicStore(store => store.topic)
     const filteredPosts = topic === 0  ? posts : posts?.filter( post => post.topic == topic)

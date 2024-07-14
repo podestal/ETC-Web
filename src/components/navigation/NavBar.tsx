@@ -49,7 +49,7 @@ const NavBar = () => {
         style={{transition: 'background-color 0.7s ease'}} 
         className={`w-full fixed ${navBg && 'lg:backdrop-blur-sm lg:bg-slate-950/60'} top-0 left-0 z-50 flex justify-center items-center`}>
         <nav className="w-[1080px] max-lg:hidden flex justify-between items-center h-[100px]">
-            <Link to='/'><div style={{ backgroundImage: `url(${logo})` }} className="bg-cover w-[240px] h-[120px]"/></Link>
+            <Link to='/'><div style={{ backgroundImage: `url(${logo})` }} className="bg-cover w-[300px] h-[140px]"/></Link>
             <ul className="flex justify-center items-center gap-28 text-xl">
                 <Link className="hover:text-slate-400 hover:border-b-2 hover:border-slate-300" to='/posts'><p className="text-lg">Blog</p></Link>
                 {/* <Link className="hover:text-slate-400 hover:border-b-2 hover:border-slate-300 " to='/contact'>Contacto</Link> */}
