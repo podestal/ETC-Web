@@ -49,11 +49,11 @@ const NavBar = () => {
         style={{transition: 'background-color 0.7s ease'}} 
         className={`w-full fixed ${navBg && 'lg:backdrop-blur-sm lg:bg-slate-950/60'} top-0 left-0 z-50 flex justify-center items-center`}>
         <nav className="w-[1080px] max-lg:hidden flex justify-between items-center h-[100px]">
-            <Link to='/'><div style={{ backgroundImage: `url(${logo})` }} className="bg-cover w-[300px] h-[140px]"/></Link>
+            <Link onClick={() => setShow(false)} to='/'><div style={{ backgroundImage: `url(${logo})` }} className="bg-cover w-[300px] h-[140px]"/></Link>
             <ul className="flex justify-center items-center gap-28 text-xl">
-                <Link className="hover:text-slate-400 hover:border-b-2 hover:border-slate-300" to='/posts'><p className="text-lg">Blog</p></Link>
+                <Link onClick={() => setShow(false)} className="hover:text-slate-400 hover:border-b-2 hover:border-slate-300" to='/posts'><p className="text-lg">Blog</p></Link>
                 {/* <Link className="hover:text-slate-400 hover:border-b-2 hover:border-slate-300 " to='/contact'>Contacto</Link> */}
-                <Link className="hover:text-slate-400 hover:border-b-2 hover:border-slate-300 " to='/courses'><p className="text-lg">Cursos</p></Link>
+                <Link onClick={() => setShow(false)} className="hover:text-slate-400 hover:border-b-2 hover:border-slate-300 " to='/courses'><p className="text-lg">Cursos</p></Link>
                 {access && <Link onClick={handleLogout} to='/' className="bg-red-500 px-6 py-2 rounded-3xl font-bold hover:bg-red-400'"><p className="text-lg">Logout</p></Link>}
             </ul>
         </nav>
@@ -71,10 +71,10 @@ const NavBar = () => {
                 transition={{duration: 0.8}}
                 className="lg:hidden fixed z-50 backdrop-blur-md bg-slate-950/60 top-0 left-0 bg-black w-full min-h-screen">
                 <ul className="flex flex-col justify-center items-center gap-12 text-xl my-10">
-                    <Link to='/'><div style={{ backgroundImage: `url(${logo})` }} className="bg-cover w-[270px] h-[100px]"/></Link>
-                    <Link className="hover:text-slate-400 hover:border-b-2 hover:border-slate-300" to='/posts'><p className="text-lg">Blog</p></Link>
+                    <Link onClick={() => setShow(false)} to='/'><div style={{ backgroundImage: `url(${logo})` }} className="bg-cover w-[270px] h-[100px]"/></Link>
+                    <Link onClick={() => setShow(false)} className="hover:text-slate-400 hover:border-b-2 hover:border-slate-300" to='/posts'><p className="text-lg">Blog</p></Link>
                     {/* <Link className="hover:text-slate-400 hover:border-b-2 hover:border-slate-300 " to='/contact'>Contacto</Link> */}
-                    <Link className="hover:text-slate-400 hover:border-b-2 hover:border-slate-300 " to='/courses'><p className="text-lg">Cursos</p></Link>
+                    <Link onClick={() => setShow(false)} className="hover:text-slate-400 hover:border-b-2 hover:border-slate-300 " to='/courses'><p className="text-lg">Cursos</p></Link>
                     {access && <Link onClick={handleLogout} to='/' className="bg-red-500 px-6 py-2 rounded-3xl font-bold hover:bg-red-400'"><p className="text-lg">Logout</p></Link>}
                     <button onClick={() => setShow(false)}>X</button>
                 </ul>

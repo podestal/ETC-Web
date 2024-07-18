@@ -16,7 +16,7 @@ const PostsPage = () => {
     
   return (
     <>
-        <div className="w-full flex gap-12 min-h-[100vh] mt-20 relative">
+        <div className="w-full flex gap-12 min-h-[100vh] mt-20 relative overflow-hidden">
             <Topics 
               topics={topics}
             />
