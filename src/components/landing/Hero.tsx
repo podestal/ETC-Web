@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom'
 const Hero = () => {
 
   return (
-    <div className='w-full min-h-screen flex flex-col items-center justify-center relative'>
+    <div className='w-full min-h-screen flex flex-col items-center justify-center relative max-lg:my-20'>
       <motion.div 
         initial={{opacity: 0, translateY: 100}}
         whileInView={{opacity: 1, translateY: 0}}
         transition={{duration: 1.3}}
         className='h-screen w-full flex flex-col items-center justify-center gap-12'>
-        <h2 className="max-lg:text-6xl text-8xl font-montserrat text-slate-200 text-center relative z-10">Aprende a programar ya!</h2>
-        <p className="w-[60%] text-center text-2xl font-poppins text-slate-400 leading-10">El Teclado de Sócrates es una plataforma de educación que combina aprendizaje rápido, buenas prácticas, proyectos prácticos y una sólida base teórica </p>
+        <h2 className="text-4xl max-lg:text-6xl lg:text-8xl font-montserrat text-slate-200 text-center relative lg:z-10">Aprende a programar ya!</h2>
+        <p className="max-lg:w-full w-[60%] text-center text-2xl font-poppins text-slate-400 leading-10 px-4">El Teclado de Sócrates es una plataforma de educación que combina aprendizaje rápido, buenas prácticas, proyectos prácticos y una sólida base teórica </p>
         <Link to='/courses'><p className="px-6 py-2 bg-blue-700 rounded-3xl cursor-pointer hover:bg-blue-600 ">Conoce más</p></Link>
       </motion.div>
       <motion.div 

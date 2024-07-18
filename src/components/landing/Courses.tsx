@@ -23,13 +23,13 @@ const Courses = () => {
             {loading && <img 
                 src={reactImgLoading} 
                 alt="react-course-img" 
-                className='w-[400px] h-full rounded-3xl' 
+                className='w-[300px] lg:w-[400px] h-full rounded-3xl' 
             />}
             <img 
                 src={reactImg} 
                 loading='lazy' 
                 alt="react-course-img" 
-                className='w-[400px] h-full rounded-3xl' 
+                className='w-[300px] lg:w-[400px] h-full rounded-3xl' 
                 onLoad={() => setLoading(false)}
             />
         </motion.div>

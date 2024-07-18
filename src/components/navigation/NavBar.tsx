@@ -61,7 +61,7 @@ const NavBar = () => {
                 setHidden(true)
                 setShow(true)}} className='text-slate-50 p-4 bg-slate-950 lg:hidden'><Icon color='blue' size='lg' icon={RiMenu2Fill}/></button>}
     </motion.header>
-    <header>
+    <header >
         <AnimatePresence>
         {show &&
             <motion.nav 

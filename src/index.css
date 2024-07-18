@@ -13,7 +13,7 @@ body {
 
 @layer utilities {
     .card-wrapper {
-      @apply relative overflow-hidden rounded-2xl bg-transparent w-[100%] h-[200px]
+      @apply relative overflow-hidden rounded-2xl bg-transparent w-[100%] h-[300px]
     }
   
     .card-wrapper::before {

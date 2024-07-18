@@ -18,8 +18,8 @@ const Newsletter = () => {
                 transition={{duration: 1.2}}
                 className={`md:w-[60%] w-full ${single.styles == 'text-left' && `self-end text-right mx-4`}`}
                 key={single.title}>
-                    <div className='card-wrapper'>
-                        <div className='card-content flex flex-col gap-6 rounded-3xl px-6 py-4'>
+                    <div className='card-wrapper h-full mx-2'>
+                        <div className='card-content flex flex-col gap-6 rounded-3xl px-6 py-4 max-lg:text-center '>
                             <h3 className='text-3xl font-palanquin font-bold'>{single.title}</h3>
                             <p className='text-lg'>{single.description}</p>
                         </div>

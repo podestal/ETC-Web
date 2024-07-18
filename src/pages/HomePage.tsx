@@ -5,7 +5,7 @@ import Newsletter from "../components/landing/Newsletter"
 const HomePage = () => {
 
   return (
-    <div className="w-[100%] bg-slate-950 text-slate-200">
+    <div className="w-[100%] max-md:overflow-hidden bg-slate-950 text-slate-200">
         <Hero />
         <Newsletter />
          <Courses />
